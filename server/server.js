@@ -1,7 +1,9 @@
 const path = require("path");
 
-require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
-require("dotenv").config({ path: path.resolve(__dirname, ".env") });
+if (process.env.NODE_ENV !== "production") {
+  require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
+  require("dotenv").config({ path: path.resolve(__dirname, ".env") });
+}
 
 const express = require("express");
 const cors = require("cors");
@@ -103,11 +105,13 @@ app.get(/.*/, (req, res) => {
 
 app.use(errorHandler);
 
-const PORT = process.env.PORT || 5000;
+const PORT = Number(process.env.PORT) || 5000;
+
+console.log(`Starting server in ${process.env.NODE_ENV || "development"} mode on port ${PORT}`);
 
 connectDB()
   .then(() => {
-    app.listen(PORT, () => {
+    app.listen(PORT, "0.0.0.0", () => {
       console.log(`Server running on ${PORT}`);
     });
   })
