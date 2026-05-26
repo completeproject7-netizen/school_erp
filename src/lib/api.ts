@@ -1,6 +1,8 @@
 import type { User } from "./auth";
 
-const API_BASE = import.meta.env.VITE_API_BASE || "/api";
+const API_BASE = import.meta.env.VITE_API_URL
+  ? `${import.meta.env.VITE_API_URL}/api`
+  : "/api";
 
 function getCsrfToken() {
   return document.cookie

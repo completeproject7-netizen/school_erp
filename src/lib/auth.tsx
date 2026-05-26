@@ -34,7 +34,9 @@ interface AuthCtx {
 
 const Ctx = createContext<AuthCtx | null>(null);
 
-const API_BASE = import.meta.env.VITE_API_BASE || "/api";
+const API_BASE = import.meta.env.VITE_API_URL
+  ? `${import.meta.env.VITE_API_URL}/api`
+  : "/api";
 const ACCESS_TOKEN_KEY = "campus_hub_access_token";
 const CSRF_TOKEN_KEY = "campus_hub_csrf_token";
 
@@ -160,7 +162,7 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   };
 
   const logout = async () => {
-    await fetch("/api/auth/logout", {
+    await fetch(`${API_BASE}/auth/logout`, {
       method: "POST",
       credentials: "include",
     });
