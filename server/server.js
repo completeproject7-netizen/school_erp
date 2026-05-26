@@ -97,10 +97,12 @@ app.use("/api/submissions", submissionsRoutes);
 app.use("/api/analytics", analyticsRoutes);
 app.use("/api", contentRoutes);
 
-app.use(express.static(path.join(__dirname, "../dist")));
+const distPath = path.join(__dirname, "../dist");
 
-app.get(/.*/, (req, res) => {
-  res.sendFile(path.join(__dirname, "../dist/index.html"));
+app.use(express.static(distPath));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(distPath, "index.html"));
 });
 
 app.use(errorHandler);
