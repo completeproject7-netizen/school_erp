@@ -97,7 +97,9 @@ app.use("/api/submissions", submissionsRoutes);
 app.use("/api/analytics", analyticsRoutes);
 app.use("/api", contentRoutes);
 
-const distPath = path.resolve(process.cwd(), "dist");
+const distPath = path.resolve(__dirname, "..", "dist");
+
+console.log("Serving frontend from:", distPath);
 
 app.use(express.static(distPath));
 
