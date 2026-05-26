@@ -98,9 +98,11 @@ app.use("/api/analytics", analyticsRoutes);
 app.use("/api", contentRoutes);
 
 const distPath = path.resolve(__dirname, "..", "dist");
+const assetsPath = path.join(distPath, "assets");
 
 console.log("Serving frontend from:", distPath);
 
+app.use("/assets", express.static(assetsPath));
 app.use(express.static(distPath));
 
 app.get(/.*/, (req, res) => {
