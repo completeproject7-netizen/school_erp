@@ -1,0 +1,241 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --font-sans: "Inter", ui-sans-serif, system-ui, sans-serif;
+  --font-display: "Fraunces", ui-serif, Georgia, serif;
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  --color-popover: var(--popover);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-destructive: var(--destructive);
+  --color-destructive-foreground: var(--destructive-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-ring: var(--ring);
+  --color-success: var(--success);
+  --color-success-foreground: var(--success-foreground);
+  --color-warning: var(--warning);
+  --color-warning-foreground: var(--warning-foreground);
+  --color-chart-1: var(--chart-1);
+  --color-chart-2: var(--chart-2);
+  --color-chart-3: var(--chart-3);
+  --color-chart-4: var(--chart-4);
+  --color-chart-5: var(--chart-5);
+  --color-sidebar: var(--sidebar);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-ring: var(--sidebar-ring);
+}
+
+/* Scholarly / academic palette: deep navy + warm gold + ivory */
+:root {
+  --radius: 0.625rem;
+  --background: oklch(0.98 0.012 85);          /* warm ivory */
+  --foreground: oklch(0.22 0.04 260);
+  --card: oklch(1 0 0);
+  --card-foreground: oklch(0.22 0.04 260);
+  --popover: oklch(1 0 0);
+  --popover-foreground: oklch(0.22 0.04 260);
+  --primary: oklch(0.32 0.09 260);             /* deep collegiate navy */
+  --primary-foreground: oklch(0.98 0.01 85);
+  --secondary: oklch(0.95 0.018 85);
+  --secondary-foreground: oklch(0.3 0.06 260);
+  --muted: oklch(0.96 0.012 85);
+  --muted-foreground: oklch(0.5 0.03 260);
+  --accent: oklch(0.65 0.14 240);              /* medium blue accent */
+  --accent-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.9 0.015 80);
+  --input: oklch(0.92 0.012 80);
+  --ring: oklch(0.32 0.09 260);
+  --success: oklch(0.55 0.14 155);
+  --success-foreground: oklch(0.98 0 0);
+  --warning: oklch(0.65 0.14 240);
+  --warning-foreground: oklch(0.99 0 0);
+  --chart-1: oklch(0.32 0.09 260);
+  --chart-2: oklch(0.72 0.12 235);
+  --chart-3: oklch(0.55 0.14 155);
+  --chart-4: oklch(0.5 0.18 25);
+  --chart-5: oklch(0.45 0.1 290);
+  --sidebar: oklch(0.22 0.05 260);             /* deep navy sidebar */
+  --sidebar-foreground: oklch(0.96 0.01 85);
+  --sidebar-primary: oklch(0.65 0.14 240);     /* medium blue accent */
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.28 0.05 260);
+  --sidebar-accent-foreground: oklch(0.96 0.01 85);
+  --sidebar-border: oklch(0.3 0.05 260);
+  --sidebar-ring: oklch(0.65 0.14 240);
+}
+
+.dark {
+  --background: oklch(0.16 0.03 260);
+  --foreground: oklch(0.95 0.01 85);
+  --card: oklch(0.2 0.04 260);
+  --card-foreground: oklch(0.95 0.01 85);
+  --popover: oklch(0.2 0.04 260);
+  --popover-foreground: oklch(0.95 0.01 85);
+  --primary: oklch(0.65 0.14 240);
+  --primary-foreground: oklch(0.99 0 0);
+  --secondary: oklch(0.26 0.04 260);
+  --secondary-foreground: oklch(0.95 0.01 85);
+  --muted: oklch(0.22 0.03 260);
+  --muted-foreground: oklch(0.7 0.02 85);
+  --accent: oklch(0.65 0.14 240);
+  --accent-foreground: oklch(0.99 0 0);
+  --destructive: oklch(0.55 0.22 25);
+  --destructive-foreground: oklch(0.98 0 0);
+  --border: oklch(0.3 0.04 260);
+  --input: oklch(0.26 0.03 260);
+  --ring: oklch(0.65 0.14 240);
+  --success: oklch(0.6 0.15 155);
+  --success-foreground: oklch(0.98 0 0);
+  --warning: oklch(0.65 0.14 240);
+  --warning-foreground: oklch(0.99 0 0);
+  --chart-1: oklch(0.78 0.1 235);
+  --chart-2: oklch(0.6 0.15 155);
+  --chart-3: oklch(0.55 0.18 25);
+  --chart-4: oklch(0.5 0.1 290);
+  --chart-5: oklch(0.65 0.12 200);
+  --sidebar: oklch(0.14 0.03 260);
+  --sidebar-foreground: oklch(0.95 0.01 85);
+  --sidebar-primary: oklch(0.65 0.14 240);
+  --sidebar-primary-foreground: oklch(0.99 0 0);
+  --sidebar-accent: oklch(0.22 0.04 260);
+  --sidebar-accent-foreground: oklch(0.95 0.01 85);
+  --sidebar-border: oklch(0.28 0.04 260);
+  --sidebar-ring: oklch(0.65 0.14 240);
+}
+
+@layer base {
+  *,
+  *::before,
+  *::after {
+    box-sizing: border-box;
+    min-width: 0;
+    border-color: var(--color-border);
+  }
+  html {
+    font-family: var(--font-sans);
+    width: 100%;
+    min-height: 100%;
+  }
+  body {
+    min-height: 100vh;
+    width: 100%;
+    margin: 0;
+    padding: 0;
+    overflow-x: hidden;
+    background-color: var(--color-background);
+    color: var(--color-foreground);
+    font-family: var(--font-sans);
+    -webkit-font-smoothing: antialiased;
+    text-rendering: optimizeLegibility;
+  }
+  img,
+  svg,
+  video,
+  canvas,
+  iframe,
+  embed,
+  object {
+    max-width: 100%;
+    height: auto;
+    display: block;
+  }
+  main,
+  section,
+  header,
+  footer,
+  article,
+  aside {
+    width: 100%;
+  }
+  h1, h2, .font-display {
+    font-family: var(--font-display);
+    letter-spacing: -0.01em;
+  }
+  /* Subtle ivory paper texture for that academic feel */
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+    z-index: 0;
+    background-image:
+      radial-gradient(circle at 20% 10%, color-mix(in oklab, var(--accent) 6%, transparent) 0, transparent 40%),
+      radial-gradient(circle at 90% 80%, color-mix(in oklab, var(--primary) 5%, transparent) 0, transparent 45%);
+  }
+  /* Smoother global transitions */
+  a, button, [role="button"], .transition-smooth {
+    transition-property: color, background-color, border-color, box-shadow, transform, opacity;
+    transition-duration: 200ms;
+    transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+  }
+}
+
+@keyframes fade-in-up {
+  from { opacity: 0; transform: translateY(8px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+@keyframes fade-in {
+  from { opacity: 0; }
+  to   { opacity: 1; }
+}
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0); }
+  50%      { transform: translateY(-8px); }
+}
+
+@layer utilities {
+  .animate-fade-in { animation: fade-in 0.4s ease-out both; }
+  .animate-fade-in-up { animation: fade-in-up 0.5s cubic-bezier(0.22,1,0.36,1) both; }
+  .animate-float-slow { animation: float-slow 6s ease-in-out infinite; }
+  .stagger > * { animation: fade-in-up 0.5s cubic-bezier(0.22,1,0.36,1) both; }
+  .stagger > *:nth-child(1) { animation-delay: 0.04s; }
+  .stagger > *:nth-child(2) { animation-delay: 0.10s; }
+  .stagger > *:nth-child(3) { animation-delay: 0.16s; }
+  .stagger > *:nth-child(4) { animation-delay: 0.22s; }
+  .stagger > *:nth-child(5) { animation-delay: 0.28s; }
+  .stagger > *:nth-child(6) { animation-delay: 0.34s; }
+  .card-hover { transition: transform .25s cubic-bezier(.22,1,.36,1), box-shadow .25s ease; }
+  .card-hover:hover { transform: translateY(-2px); box-shadow: 0 10px 30px -12px color-mix(in oklab, var(--primary) 25%, transparent); }
+}
+
+html { scroll-behavior: smooth; }
+
+/* Slim, refined scrollbars */
+::-webkit-scrollbar { width: 10px; height: 10px; }
+::-webkit-scrollbar-thumb {
+  background: color-mix(in oklab, var(--foreground) 20%, transparent);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: color-mix(in oklab, var(--foreground) 35%, transparent);
+  background-clip: padding-box;
+  border: 2px solid transparent;
+}
