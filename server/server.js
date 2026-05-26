@@ -1,4 +1,7 @@
-require("dotenv").config();
+const path = require("path");
+
+require("dotenv").config({ path: path.resolve(__dirname, "../.env") });
+require("dotenv").config({ path: path.resolve(__dirname, ".env") });
 
 const express = require("express");
 const cors = require("cors");
@@ -92,8 +95,10 @@ app.use("/api/submissions", submissionsRoutes);
 app.use("/api/analytics", analyticsRoutes);
 app.use("/api", contentRoutes);
 
-app.get("/", (req, res) => {
-  res.send("API Running");
+app.use(express.static(path.join(__dirname, "../dist")));
+
+app.get("*", (req, res) => {
+  res.sendFile(path.join(__dirname, "../dist/index.html"));
 });
 
 app.use(errorHandler);
