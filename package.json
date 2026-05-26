@@ -9,7 +9,7 @@
     "build": "node ./node_modules/vite/bin/vite.js build",
     "build:dev": "node ./node_modules/vite/bin/vite.js build --mode development",
     "preview": "node ./node_modules/vite/bin/vite.js preview",
-    "start": "npm run build && node server/server.js",
+    "start": "node server/server.js",
     "lint": "eslint .",
     "format": "prettier --write ."
   },
