@@ -97,7 +97,7 @@ app.use("/api/submissions", submissionsRoutes);
 app.use("/api/analytics", analyticsRoutes);
 app.use("/api", contentRoutes);
 
-const distPath = path.join(__dirname, "../dist");
+const distPath = path.resolve(process.cwd(), "dist");
 
 app.use(express.static(distPath));
 
